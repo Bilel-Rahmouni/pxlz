@@ -92,6 +92,7 @@ const Contact = () => {
     } 
   ];
 
+
   return (
     <section id="contact" className="relative py-24 bg-white">
       <div className="container mx-auto px-6 relative">
