@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 m-0 min-h-screen;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-lg transition-all duration-300 text-center font-semibold;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-center mb-12;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes blob {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  75% {
+    transform: translate(20px, 20px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #213547;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Neon sign effect */
+.neon-sign {
+  position: relative;
+  margin: 2rem 0;
+}
+
+/* Light mode neon effect */
+.neon-text-light {
+  color: #60a5fa;
+  text-shadow:
+    0 0 10px rgba(96, 165, 250, 0.4),
+    0 0 10px rgba(96, 165, 250, 0.3),
+    0 0 20px rgba(96, 165, 250, 0.3),
+    0 0 40px rgba(96, 165, 250, 0.2),
+    0 0 80px rgba(96, 165, 250, 0.1);
+  animation: pulsate 2.5s infinite alternate;
+}
+
+.flicker {
+  animation: flicker 3s linear infinite;
+}
+
+.flicker-delay {
+  animation: flicker 4s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes pulsate {
+  0% {
+    text-shadow:
+      0 0 4px rgba(96, 165, 250, 0.4),
+      0 0 11px rgba(96, 165, 250, 0.3),
+      0 0 19px rgba(96, 165, 250, 0.3),
+      0 0 40px rgba(96, 165, 250, 0.2),
+      0 0 80px rgba(96, 165, 250, 0.1);
+  }
+
+  100% {
+    text-shadow:
+      0 0 7px rgba(96, 165, 250, 0.4),
+      0 0 10px rgba(96, 165, 250, 0.3),
+      0 0 21px rgba(96, 165, 250, 0.3),
+      0 0 42px rgba(96, 165, 250, 0.2),
+      0 0 82px rgba(96, 165, 250, 0.1);
+  }
+}
+
+@keyframes flicker {
+
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.8;
+  }
+}
+
+.neon-text {
+  color: #60a5fa;
+  text-shadow:
+    0 0 7px rgba(96, 165, 250, 0.4),
+    0 0 10px rgba(96, 165, 250, 0.3),
+    0 0 21px rgba(96, 165, 250, 0.3),
+    0 0 42px rgba(96, 165, 250, 0.2),
+    0 0 82px rgba(96, 165, 250, 0.1);
+}
