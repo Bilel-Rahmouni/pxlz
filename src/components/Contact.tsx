@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaCheck } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaEnvelope } from 'react-icons/fa';
 import employee from '../assets/employee.jpg';
 
 const Contact = () => {
@@ -17,6 +17,7 @@ const Contact = () => {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validateForm = () => {
@@ -54,17 +55,24 @@ const Contact = () => {
     
     if (!validateForm()) return;
 
-    // Simulate form submission
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsSubmitting(true);
+    
+    try {
+      // Here you can add your form submission logic
+      // For now, we'll simulate a submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsSubmitted(true);
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: '',
       });
-    }, 3000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -83,7 +91,6 @@ const Contact = () => {
   };
 
   const contactInfo = [
-     
     { 
       icon: FaEnvelope, 
       text: "contact@pxlzstudio.com", 
@@ -92,42 +99,71 @@ const Contact = () => {
     } 
   ];
 
+  if (isSubmitted) {
+    return (
+      <section id="contact" className="relative py-16 sm:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <div className="max-w-2xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 shadow-lg rounded-lg"
+            >
+              <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
+              <p className="text-gray-600 text-lg mb-6">
+                Your message has been sent successfully. We'll get back to you soon.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsSubmitted(false)}
+                className="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors duration-300"
+              >
+                Send Another Message
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="contact" className="relative py-24 bg-white">
-      <div className="container mx-auto px-6 relative">
-        <h2 className="text-center font-thin text-sm mb-16 tracking-wider uppercase">Get In Touch</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-[1200px] mx-auto">
+    <section id="contact" className="relative py-16 sm:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <h2 className="text-center font-thin text-sm mb-12 sm:mb-16 tracking-wider uppercase">Get In Touch</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center max-w-[1200px] mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white p-8 shadow-lg h-full flex flex-col justify-between"
+            className="bg-white p-6 sm:p-8 shadow-lg h-full flex flex-col justify-between order-2 lg:order-1"
           >
-            <div className="space-y-8 mb-8">
+            <div className="space-y-6 sm:space-y-8 mb-6 sm:mb-8">
               <div className="max-w-md">
-                <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
-                <p className="text-gray-600 text-lg">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Let's Connect</h2>
+                <p className="text-base sm:text-lg text-gray-600">
                   Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you as soon as possible.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-white p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="rounded-full p-3">
-                        <info.icon className="text-2xl text-black" />
+                      <div className="rounded-full p-2 sm:p-3">
+                        <info.icon className="text-xl sm:text-2xl text-black" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold mb-1">{info.label}</h3>
-                        <p className="text-gray-600 mb-2">{info.text}</p>
-                        <p className="text-sm text-gray-500">{info.description}</p>
+                        <h3 className="text-base sm:text-lg font-semibold mb-1">{info.label}</h3>
+                        <p className="text-sm sm:text-base text-gray-600 mb-2">{info.text}</p>
+                        <p className="text-xs sm:text-sm text-gray-500">{info.description}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -135,12 +171,13 @@ const Contact = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 flex-grow">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name
                 </label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -156,10 +193,11 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address
                 </label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -175,10 +213,11 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                   Subject (Optional)
                 </label>
                 <input
+                  id="subject"
                   type="text"
                   name="subject"
                   value={formData.subject}
@@ -189,10 +228,11 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message
                 </label>
                 <textarea
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -211,9 +251,10 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-black text-white py-4 rounded-lg hover:bg-gray-900 transition-colors duration-300"
+                disabled={isSubmitting}
+                className="w-full bg-black text-white py-3 sm:py-4 rounded-lg hover:bg-gray-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base sm:text-lg"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>
@@ -223,7 +264,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full max-w-md mx-auto h-[500px] overflow-hidden rounded-lg shadow-lg"
+            className="relative w-full max-w-md mx-auto h-[400px] sm:h-[500px] overflow-hidden rounded-lg shadow-lg order-1 lg:order-2"
           >
             <img 
               src={employee} 

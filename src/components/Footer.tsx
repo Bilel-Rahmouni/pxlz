@@ -3,28 +3,9 @@ import { FaXTwitter, FaLinkedin } from 'react-icons/fa6';
 const FooterLogo = () => {
   return (
     <div className="inline-block">
-      <h1 className="text-3xl font-extrabold relative">
-        <span className="relative inline-block">
-          <span className="relative z-10 text-black px-1 bg-white rounded-md">
-            pxlz
-          </span>
-          <span className="absolute inset-0 text-white px-1" style={{
-            textShadow: `
-              2px 2px 0 #fff,
-              -2px 2px 0 #fff,
-              -2px -2px 0 #fff,
-              2px -2px 0 #fff,
-              3px 3px 0 #fff,
-              -3px 3px 0 #fff,
-              -3px -3px 0 #fff,
-              3px -3px 0 #fff
-            `,
-            WebkitTextStroke: '2px white'
-          }}>
-            pxlz
-          </span>
-        </span>
-      </h1>
+      <h1 className="text-2xl md:text-3xl font-thin relative">
+             pxlz
+       </h1>
     </div>
   );
 };

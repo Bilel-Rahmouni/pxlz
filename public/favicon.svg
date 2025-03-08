@@ -1,0 +1,55 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+    }
+    .text-shadow {
+      filter: drop-shadow(0px 0px 2px black) drop-shadow(0px 0px 2px black) drop-shadow(0px 0px 2px black);
+    }
+  </style>
+  
+  <!-- Main text with white fill -->
+  <text
+    x="16"
+    y="20"
+    font-family="Inter, sans-serif"
+    font-size="14"
+    font-weight="900"
+    text-anchor="middle"
+    fill="white"
+    class="text-shadow"
+  >
+    pxlz
+  </text>
+  
+  <!-- Black outline effect -->
+  <text
+    x="16"
+    y="20"
+    font-family="Inter, sans-serif"
+    font-size="14"
+    font-weight="900"
+    text-anchor="middle"
+    fill="none"
+    stroke="black"
+    stroke-width="4"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  >
+    pxlz
+  </text>
+  
+  <!-- White text on top -->
+  <text
+    x="16"
+    y="20"
+    font-family="Inter, sans-serif"
+    font-size="14"
+    font-weight="900"
+    text-anchor="middle"
+    fill="white"
+  >
+    pxlz
+  </text>
+</svg> 

@@ -200,3 +200,20 @@ button:focus-visible {
     0 0 42px rgba(96, 165, 250, 0.2),
     0 0 82px rgba(96, 165, 250, 0.1);
 }
+
+/* Animation for typing cursor */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

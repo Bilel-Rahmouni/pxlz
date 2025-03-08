@@ -121,41 +121,36 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[90vh] bg-white overflow-hidden">
-      <div className="relative container mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative container mx-auto px-4 sm:px-6 py-12 md:py-24">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 mt-10"
+            className="space-y-6 md:space-y-8 order-2 md:order-1"
           >
             <h1 className="leading-tight">
-              <span className="block text-4xl md:text-5xl font-thin text-black">We Build</span>
-              <span className="block text-4xl md:text-5xl font-thin text-black">Platforms For</span>
-              <div className="h-[100px] mt-4">
+              <span className="block text-3xl sm:text-4xl md:text-5xl font-thin text-black">We Build</span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl font-thin text-black">Platforms For</span>
+              <div className="h-[80px] sm:h-[100px] mt-4">
                 <div className="relative">
-                  <span className="text-4xl md:text-5xl font-thin block min-h-[60px] leading-[1.1] bg-gradient-to-r from-black to-gray-600 text-transparent bg-clip-text">
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-thin block min-h-[60px] leading-[1.1] bg-gradient-to-r from-black to-gray-600 text-transparent bg-clip-text">
                     {text}<span className="animate-pulse">|</span>
                   </span>
                 </div>
               </div>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
               Elevating brands through sophisticated digital experiences. Where innovation meets elegance, and vision transforms into digital masterpieces.
             </p>
             
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4 sm:gap-6">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-black text-white 
-                px-8 py-4 rounded-none 
-                font-medium text-lg transition-all 
-                duration-300 hover:bg-black 
-                hover:text-white hover:border 
-                hover:border-white"
+                className="w-full sm:w-auto bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-none font-medium text-base sm:text-lg transition-all duration-300 hover:bg-white hover:text-black hover:border hover:border-black text-center"
               >
                 Get a Free Quote
               </motion.a>
@@ -163,11 +158,7 @@ const Hero = () => {
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-black
-                 px-8 py-4 rounded-none font-medium
-                  text-lg border border-black 
-                  transition-all duration-300 
-                  hover:bg-white hover:text-black"
+                className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-none font-medium text-base sm:text-lg border border-black transition-all duration-300 hover:bg-black hover:text-white text-center"
               >
                 Our Work
               </motion.a>
@@ -179,9 +170,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative order-1 md:order-2"
           >
-            <div className="grid grid-cols-6 gap-2">
+            <div className="grid grid-cols-4 sm:grid-cols-6 gap-1 sm:gap-2">
               {gridImages.map((image, index) => (
                 <motion.div
                   key={index}
@@ -198,7 +189,7 @@ const Hero = () => {
                     transition={{ duration: 0.3 }}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-white text-[10px] sm:text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-1">
                       {image.title}
                     </span>
                   </div>
