@@ -32,7 +32,7 @@ const About = () => {
           >
             <div className="space-y-8">
               <div className="max-w-md">
-                <h2 className="text-4xl font-bold mb-6">Digital Excellence</h2>
+                <h2 className="text-4xl font-bold mb-6">pxlz</h2>
                 <p className="text-gray-600 text-lg mb-6">
                   We are a team of passionate digital creators, developers, and strategists dedicated to transforming ideas into exceptional digital experiences.
                 </p>
