@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaGem, FaCrown, FaChartLine } from 'react-icons/fa';
+import { motion,   } from 'framer-motion';
+
 import { useState, useEffect } from 'react';
 
 // Import images
@@ -120,7 +120,7 @@ const Hero = () => {
   }, [text, currentTextIndex, isDeleting]);
 
   return (
-    <div className="relative min-h-[90vh] bg-white overflow-hidden">
+    <div className="relative min-h-[90vh] bg-white overflow-hidden pt-[60px] md:pt-0">
       <div className="relative container mx-auto px-4 sm:px-6 py-12 md:py-24">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Text Content */}

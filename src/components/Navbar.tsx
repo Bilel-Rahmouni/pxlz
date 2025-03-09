@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Logo = () => {
   return (
-    <div className="inline-block">
-      <h1 className="text-2xl md:text-3xl font-thin relative">
+    <a href="/" className="inline-block">
+      <h1 className="text-2xl md:text-3xl text-black font-thin relative">
              pxlz
-       </h1>
-    </div>
+      </h1>
+    </a>
   );
 };
 
@@ -32,17 +32,38 @@ const Navbar = () => {
     { href: '#contact', label: 'Contact' }
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    const element = document.querySelector(href);
+    if (element) {
+      const isMobile = window.innerWidth < 768;
+      const navHeight = isMobile ? 60 : 80; // Adjusted height for mobile
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      // Close menu first
+      setIsMenuOpen(false);
+
+      // Small delay to allow menu to close before scrolling
+      setTimeout(() => {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'py-2 md:py-4 bg-white shadow-lg' : 'py-4 md:py-6 bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-white shadow-lg md:bg-transparent md:shadow-none"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h-[60px] md:h-auto">
           {/* Logo */}
           <Logo />
 
@@ -52,6 +73,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-black hover:text-gray-600 transition-colors duration-300"
               >
                 {link.label}
@@ -59,6 +81,7 @@ const Navbar = () => {
             ))}
             <motion.a
               href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-black text-white rounded-none hover:bg-gray-900 transition-colors duration-300"
@@ -71,6 +94,7 @@ const Navbar = () => {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-black p-2 focus:outline-none"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <svg
               className="w-6 h-6"
@@ -97,7 +121,7 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
               className="md:hidden mt-4"
             >
               <div className="bg-white shadow-xl rounded-lg overflow-hidden">
@@ -105,16 +129,16 @@ const Navbar = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block px-6 py-3 text-black hover:bg-gray-50 transition-colors duration-300"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block px-6 py-4 text-black hover:bg-gray-50 transition-colors duration-300 text-lg"
                   >
                     {link.label}
                   </a>
                 ))}
                 <a
                   href="#contact"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-6 py-3 bg-black text-white hover:bg-gray-900 transition-colors duration-300"
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                  className="block px-6 py-4 bg-black text-white hover:bg-gray-900 transition-colors duration-300 text-lg"
                 >
                   Get a Free Quote
                 </a>

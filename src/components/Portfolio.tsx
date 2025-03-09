@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 // Import images
 import renklar from '../assets/renklar.png';
