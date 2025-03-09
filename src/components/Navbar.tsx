@@ -11,9 +11,79 @@ const Logo = () => {
   );
 };
 
+const getSeasonalOffer = () => {
+  const today = new Date();
+  const month = today.getMonth(); // 0-11
+  const day = today.getDate();
+
+  // Special occasions with their dates and messages
+  const occasions = [
+    {
+      name: "Valentine's",
+      condition: month === 1 && day >= 1 && day <= 14,
+      message: "Love is in the air! Get 30% off this Valentine's season",
+     },
+    {
+      name: "Women's Day",
+      condition: month === 2 && day >= 1 && day <= 8,
+      message: "Celebrate International Women's Day with 30% off",
+     },
+    {
+      name: "Easter",
+      condition: month === 3 && day >= 15,
+      message: "Hop into savings! 30% off for Easter",
+     },
+    {
+      name: "Mother's Day",
+      condition: month === 4 && day <= 14,
+      message: "Show Mom some love with 30% off",
+     },
+    {
+      name: "Father's Day",
+      condition: month === 5 && day >= 10 && day <= 20,
+      message: "Celebrate Dad with 30% off",
+     },
+    {
+      name: "Summer",
+      condition: month >= 5 && month <= 7,
+      message: "Summer Special! Cool 30% off on all projects",
+     },
+    {
+      name: "Back to School",
+      condition: month === 7 && day >= 15 || month === 8 && day <= 15,
+      message: "Back to School! Get 30% off on your digital needs",
+     },
+    {
+      name: "Halloween",
+      condition: month === 9 && day >= 15 || month === 10 && day <= 31,
+      message: "Spooky Season Savings! 30% off",
+     },
+    {
+      name: "Christmas",
+      condition: month === 11 && day >= 1 && day <= 25,
+      message: "Holiday Magic! Unwrap 30% savings",
+     },
+    {
+      name: "Spring",
+      condition: month >= 2 && month <= 4,
+      message: "Spring into action with 30% off",
+     }
+  ];
+
+  // Find the current occasion
+  const currentOccasion = occasions.find(occasion => occasion.condition);
+
+  // Default offer if no special occasion
+  return currentOccasion || {
+    name: "Special",
+    message: "🎉 Special Offer: Get 30% Off Your First Project!",
+   };
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentOffer, setCurrentOffer] = useState(getSeasonalOffer());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +93,25 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Update offer daily
+  useEffect(() => {
+    const checkDate = () => {
+      setCurrentOffer(getSeasonalOffer());
+    };
+
+    // Check at midnight each day
+    const now = new Date();
+    const night = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const msToMidnight = night.getTime() - now.getTime();
+
+    // Initial check
+    checkDate();
+
+    // Set up timer for next check
+    const timer = setTimeout(checkDate, msToMidnight);
+    return () => clearTimeout(timer);
   }, []);
 
   const navLinks = [
@@ -60,9 +149,11 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-white shadow-lg md:bg-transparent md:shadow-none"
+      className={`fixed w-full z-50 transition-all duration-300 
+        bg-white shadow-lg md:bg-transparent md:shadow-none
+        ${isScrolled ? 'md:bg-white md:shadow-lg' : ''}`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 py-2 md:py-4">
         <div className="flex items-center justify-between h-[60px] md:h-auto">
           {/* Logo */}
           <Logo />
@@ -146,6 +237,16 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+      
+      {/* Promotion Line */}
+      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 py-1.5 text-center">
+        <p className="text-white text-sm font-medium">
+          {currentOffer.message}
+          <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="underline ml-2 hover:text-gray-200">
+            Claim Now
+          </a>
+        </p>
       </div>
     </motion.nav>
   );

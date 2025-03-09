@@ -75,17 +75,8 @@ const Services = () => {
                          border-black"
                       >
                         <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
-                          {index % 2 === 1 && (
-                            <div className="bg-black bg-opacity-5  p-2">
-                              <step.icon className="text-lg text-black" />
-                            </div>
-                          )}
-                          <h3 className="text-base font-semibold">{step.title}</h3>
-                          {index % 2 === 0 && (
-                            <div className="bg-black bg-opacity-5  p-2">
-                              <step.icon className="text-lg text-black" />
-                            </div>
-                          )}
+                           <h3 className="text-base font-semibold">{step.title}</h3>
+                           
                         </div>
                         <p className="text-sm text-gray-600">{step.description}</p>
                       </motion.div>
