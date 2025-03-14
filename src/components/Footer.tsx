@@ -1,14 +1,5 @@
 import { FaXTwitter, FaLinkedin } from 'react-icons/fa6';
-
-const FooterLogo = () => {
-  return (
-    <div className="inline-block">
-      <h1 className="text-2xl md:text-3xl font-thin relative">
-             pxlz
-       </h1>
-    </div>
-  );
-};
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <FooterLogo />
+            <Logo />
             <p className="text-gray-400 mt-4">
               Transforming ideas into exceptional digital experiences.
             </p>
@@ -33,7 +24,9 @@ const Footer = () => {
               <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Services</a></li>
               <li><a href="#portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            </ul>
+              <li><a href="/careers" className="text-gray-400
+               hover:text-white transition-colors">Join Our Team</a></li>
+                           </ul>
           </div>
 
           {/* Social Links */}

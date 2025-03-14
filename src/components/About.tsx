@@ -1,82 +1,135 @@
 import { motion } from 'framer-motion';
 import employees from '../assets/employees.jpg';
+import NeubrutalistCard from './NeubrutalistCard';
+import NeubrutalistButton from './NeubrutalistButton';
 
 const About = () => {
+  const stats = [
+    { number: "500+", label: "Projects Completed" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "50+", label: "Team Members" },
+    { number: "24/7", label: "Support" }
+  ];
+
   return (
-    <section id="about" className="relative py-24 bg-white">
-      <div className="container mx-auto px-6 relative">
-        <h2 className="text-center font-thin text-sm mb-16 tracking-wider uppercase">About Us</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-[1200px] mx-auto">
-          
-
-          {/* Team Image */}
+    <section id="about" className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative">
+        {/* About Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Left Column - Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="relative w-full max-w-md mx-auto h-[500px] overflow-hidden rounded-lg shadow-lg"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative order-2 lg:order-1"
           >
-            <img 
-              src={employees} 
-              alt="Our Team" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          </motion.div>
-          {/* About Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 shadow-lg flex flex-col justify-between"
-          >
-            <div className="space-y-8">
-              <div className="max-w-md">
-                <h2 className="text-4xl font-bold mb-6">pxlz</h2>
-                <p className="text-gray-600 text-lg mb-6">
-                  We are a team of passionate digital creators, developers, and strategists dedicated to transforming ideas into exceptional digital experiences.
-                </p>
-                <p className="text-gray-600 text-lg mb-6">
-                  With years of experience in web development and digital solutions, we pride ourselves on delivering innovative and scalable solutions that help businesses thrive in the digital age.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-semibold mb-4">Our Mission</h3>
-                  <p className="text-gray-600">
-                    To empower businesses with cutting-edge digital solutions that drive growth and create meaningful connections with their audience.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-semibold mb-4">Our Vision</h3>
-                  <p className="text-gray-600">
-                    To be the leading force in digital transformation, setting new standards for innovation and excellence in the digital world.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-semibold mb-4">Our Values</h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Innovation in everything we do</li>
-                    <li>• Excellence in delivery</li>
-                    <li>• Client success as our priority</li>
-                    <li>• Continuous learning and growth</li>
-                  </ul>
-                </div>
-              </div>
+            <div className="relative z-10">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-indigo-500/20 to-violet-500/20 rounded-3xl blur-3xl"></div>
+                  <img
+                    src={employees}
+                    alt="Our Team"
+                    className="w-full h-[600px] object-cover"
+                  /> 
+              </motion.div>
             </div>
+          </motion.div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-black text-white py-4 rounded-lg hover:bg-gray-900 transition-colors duration-300 mt-8"
+          {/* Right Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2"
+          >
+            <NeubrutalistCard className="p-8"
+              // hoverEffect={false}
             >
-              Learn More About Us
-            </motion.button>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl mb-4 md:text-7xl font-black"
+                style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}
+              >
+                About Us
+              </motion.h2>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-gray-800 mb-6"
+              >
+                We are a team of passionate designers and developers based in Denmark, dedicated to creating exceptional digital experiences. Our approach combines creativity with technical expertise to deliver solutions that make a difference.
+              </motion.p>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-xl text-gray-800 mb-12"
+              >
+                With years of experience in the industry, we've helped businesses of all sizes transform their digital presence and achieve their goals.
+              </motion.p>
+
+              {/* CTA Button */}
+              <NeubrutalistButton
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                variant="primary"
+                className="text-lg"
+              >
+                Get in Touch
+              </NeubrutalistButton>
+            </NeubrutalistCard>
           </motion.div>
         </div>
+
+        {/* Stats Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="relative  
+           p-8 overflow-hidden"
+        >
+          {/* Background gradient */}
+          <div className="absolute inset-0
+           bg-gradient-to-r from-blue-800 
+          via-blue-700 to-blue-600 w-full h-full" />
+          
+          {/* Stats grid */}
+          <div className="grid
+           grid-cols-2 md:grid-cols-4 gap-6 w-full h-full
+           relative z-10">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                className="py-6 text-center"
+              >
+                <div className="text-4xl font-bold mb-2 text-white">
+                  {stat.number}
+                </div>
+                <div className="text-white font-medium">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaComments, FaPencilRuler, FaCode, FaSearchPlus, FaClipboardCheck, FaRocket } from 'react-icons/fa';
+import NeubrutalistCard from './NeubrutalistCard';
 
 const Services = () => {
   const timelineSteps = [
@@ -42,14 +43,24 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="services" className="py-20 relative overflow-hidden">
+ 
+      <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-center font-thin text-sm mb-16 tracking-wider uppercase">What You Can Expect From Us</h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center text-5xl md:text-7xl font-black mb-16"
+            style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}
+          >
+            What You Can Expect From Us
+          </motion.h2>
+
           {/* Timeline Container */}
           <div className="relative">
             {/* Center Timeline Line */}
-            <div className="absolute left-1/2 top-0 h-[calc(100%-2rem)] w-[1px] bg-black/10 transform -translate-x-1/2" />
+            <div className="absolute left-1/2 top-0 h-[calc(100%-2rem)] w-[1px] bg-black transform -translate-x-1/2" />
 
             {/* Timeline Steps */}
             <div className="relative">
@@ -68,27 +79,24 @@ const Services = () => {
                     {/* Content Box */}
                     <div className={`w-[calc(50%-2rem)] 
                       ${index % 2 === 0 ? 'text-right mr-2' : 'text-left ml-2'}`}>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-white p-4  shadow-md
-                         hover:shadow-lg transition-all duration-300 border-[0.2px] 
-                         border-black"
-                      >
-                        <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
-                           <h3 className="text-base font-semibold">{step.title}</h3>
-                           
+                      <NeubrutalistCard className="p-6">
+                        <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'justify-end' : ''}`}>
+                          <div className="rounded-full p-3   ">
+                            <step.icon className="text-2xl text-black" />
+                          </div>
+                          <h3 className="text-xl font-bold">{step.title}</h3>
                         </div>
-                        <p className="text-sm text-gray-600">{step.description}</p>
-                      </motion.div>
+                        <p className="text-gray-800 text-lg">{step.description}</p>
+                      </NeubrutalistCard>
                     </div>
 
                     {/* Timeline Point with Number */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                       <div className="relative">
-                        <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-medium">
+                        <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold border-4 border-white">
                           {index + 1}
                         </div>
-                        <div className="absolute inset-0 w-6 h-6 rounded-full bg-black/30 animate-ping" />
+                        <div className="absolute inset-0 w-8 h-8 rounded-full bg-black/30 animate-ping" />
                       </div>
                     </div>
                   </motion.div>
@@ -96,6 +104,25 @@ const Services = () => {
               ))}
             </div>
           </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2 }}
+            className="mt-16 text-center"
+          >
+            <motion.a
+              href="#contact"
+              // whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-8 py-4 bg-black text-white font-bold text-lg border-4 border-black
+               hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              Get Started
+            </motion.a>
+          </motion.div>
         </div>
       </div>
     </section>

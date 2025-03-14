@@ -1,15 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const Logo = () => {
-  return (
-    <a href="/" className="inline-block">
-      <h1 className="text-2xl md:text-3xl text-black font-thin relative">
-             pxlz
-      </h1>
-    </a>
-  );
-};
+import Logo from './Logo';
 
 const getSeasonalOffer = () => {
   const today = new Date();
@@ -115,11 +106,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#contact', label: 'Contact' }
-  ];
+    { href: '#portfolio', label: 'Our Work' },
+    { href: '#services', label: 'Our Services' },
+    { href: '#about', label: 'About Us' },
+   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -150,41 +140,56 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 
-        bg-white shadow-lg md:bg-transparent md:shadow-none
-        ${isScrolled ? 'md:bg-white md:shadow-lg' : ''}`}
+        ${isScrolled 
+          ? 'bg-black/90 backdrop-blur-md shadow-lg' 
+          : 'bg-white shadow-lg'
+        }`}
     >
-      <div className="container mx-auto px-4 md:px-6 py-2 md:py-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-4">
         <div className="flex items-center justify-between h-[60px] md:h-auto">
           {/* Logo */}
-          <Logo />
+          <div className="flex-shrink-0">
+            <Logo />
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-black hover:text-gray-600 transition-colors duration-300"
+                className={`
+                  transition-colors duration-300 font-medium relative group text-sm lg:text-base
+                  ${isScrolled ? 'text-white hover:text-[#3B82F6]' : 'text-black hover:text-[#3B82F6]'}
+                `}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {link.label}
-              </a>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5
+                 bg-[#3B82F6] transition-all duration-300
+                 group-hover:w-full"></span>
+              </motion.a>
             ))}
             <motion.a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-black text-white rounded-none hover:bg-gray-900 transition-colors duration-300"
+              className="px-4 lg:px-6 py-2 bg-[#3B82F6] text-black 
+              rounded-full hover:shadow-lg transition-all text-sm lg:text-base
+              duration-300 font-bold border-[1px] border-black whitespace-nowrap"
             >
               Get a Free Quote
             </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <motion.button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-black p-2 focus:outline-none"
+            className="md:hidden text-black dark:text-white p-2 focus:outline-none"
+            whileTap={{ scale: 0.95 }}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <svg
@@ -202,7 +207,7 @@ const Navbar = () => {
                 <path d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
@@ -215,24 +220,30 @@ const Navbar = () => {
               transition={{ duration: 0.2 }}
               className="md:hidden mt-4"
             >
-              <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+              <div className="bg-black/90 backdrop-blur-md
+               shadow-xl rounded-2xl overflow-hidden border-4 border-black">
                 {navLinks.map((link) => (
-                  <a
+                  <motion.a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="block px-6 py-4 text-black hover:bg-gray-50 transition-colors duration-300 text-lg"
+                    className="block px-4 sm:px-6 py-4 text-white hover:bg-white/10 
+                    transition-colors duration-300 text-base sm:text-lg font-medium"
+                    whileHover={{ x: 10 }}
                   >
                     {link.label}
-                  </a>
+                  </motion.a>
                 ))}
-                <a
+                <motion.a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="block px-6 py-4 bg-black text-white hover:bg-gray-900 transition-colors duration-300 text-lg"
+                  className="block px-4 sm:px-6 py-4 bg-[#3B82F6] text-black hover:shadow-lg 
+                  transition-all duration-300 text-base sm:text-lg
+                   font-bold border-4 border-black"
+                  whileHover={{ scale: 1.02 }}
                 >
                   Get a Free Quote
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           )}
@@ -240,12 +251,9 @@ const Navbar = () => {
       </div>
       
       {/* Promotion Line */}
-      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 py-1.5 text-center">
-        <p className="text-white text-sm font-medium">
+      <div className="bg-[#3B82F6] py-2 text-center border-t-[1px] border-black">
+        <p className="text-black text-sm font-bold px-4">
           {currentOffer.message}
-          <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="underline ml-2 hover:text-gray-200">
-            Claim Now
-          </a>
         </p>
       </div>
     </motion.nav>

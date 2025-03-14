@@ -1,29 +1,25 @@
+import { motion } from 'framer-motion';
+
 const Logo = () => {
   return (
-    <a href="/" className="inline-block">
-      <h1 className="text-2xl md:text-3xl font-extrabold relative">
-        <span className="relative inline-block">
-          <span className="relative z-10 text-white px-1 bg-black rounded-md">
+    <motion.a 
+      href="/" 
+      className="inline-block"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <div className="relative">
+         
+        {/* Logo text */}
+        <h1 className="relative text-2xl md:text-3xl font-bold" style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}>
+          <span className="bg-gradient-to-r from-blue-800 
+          via-blue-700 to-blue-600 bg-clip-text text-transparent
+           tracking-tighter">
             pxlz
           </span>
-          <span className="absolute inset-0 text-black px-1" style={{
-            textShadow: `
-              2px 2px 0 #000,
-              -2px 2px 0 #000,
-              -2px -2px 0 #000,
-              2px -2px 0 #000,
-              3px 3px 0 #000,
-              -3px 3px 0 #000,
-              -3px -3px 0 #000,
-              3px -3px 0 #000
-            `,
-            WebkitTextStroke: '2px black'
-          }}>
-            pxlz
-          </span>
-        </span>
-      </h1>
-    </a>
+        </h1>
+      </div>
+    </motion.a>
   );
 };
 
