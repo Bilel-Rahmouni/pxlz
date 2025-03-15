@@ -55,7 +55,10 @@ const SAASSection = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                <NeubrutalistButton variant="primary">
+                <NeubrutalistButton 
+                  variant="primary"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Schedule Demo
                 </NeubrutalistButton>
                 <NeubrutalistButton 

@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion';
-import { FaArrowDown } from 'react-icons/fa';
-import smallBusiness from '../assets/smallBusiness.jpg';
+import { motion } from 'framer-motion'; 
 import NeubrutalistButton from './NeubrutalistButton';
 
 const Hero = () => {

@@ -54,12 +54,15 @@ const ProfessionalPortfolioSection = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                <NeubrutalistButton variant="primary">
+                <NeubrutalistButton 
+                  variant="primary"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Create Portfolio
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"
-                  onClick={() => window.open('https://portfolio-example.com', '_blank')}
+                  onClick={() => window.open('https://bilelrahmouni.com', '_blank')}
                 >
                   View Example
                 </NeubrutalistButton>

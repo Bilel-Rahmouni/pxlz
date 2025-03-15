@@ -188,7 +188,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-black dark:text-white p-2 focus:outline-none"
+            className="md:hidden p-2 focus:outline-none"
             whileTap={{ scale: 0.95 }}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -199,7 +199,7 @@ const Navbar = () => {
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="black"
             >
               {isMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12" />

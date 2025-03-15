@@ -55,12 +55,15 @@ const MobileSection = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                <NeubrutalistButton variant="primary">
+                <NeubrutalistButton 
+                  variant="primary"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Start Your App
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"
-                  onClick={() => window.open('https://wyngo-app.com', '_blank')}
+                  onClick={() => window.open('https://wyngo.co', '_blank')}
                 >
                   View Example
                 </NeubrutalistButton>

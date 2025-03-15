@@ -55,12 +55,15 @@ const BusinessSection = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                <NeubrutalistButton variant="primary">
+                <NeubrutalistButton 
+                  variant="primary"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Start Your Website
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"
-                  onClick={() => window.open('https://business-example.com', '_blank')}
+                  onClick={() => window.open('https://lumara.hu', '_blank')}
                 >
                   View Example
                 </NeubrutalistButton>
