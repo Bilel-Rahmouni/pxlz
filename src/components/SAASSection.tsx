@@ -14,7 +14,7 @@ const SAASSection = () => {
             className="text-4xl md:text-5xl font-black mb-12"
             style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}
           >
-            SaaS Development
+            Enterprise SaaS Solutions
           </motion.h2>
 
           <motion.div
@@ -23,40 +23,40 @@ const SAASSection = () => {
             viewport={{ once: true }}
           >
             <NeubrutalistCard className="p-8">
-              <h3 className="text-3xl font-bold mb-6">Business Management Platform</h3>
+              <h3 className="text-3xl font-bold mb-6">Scale Your Business Operations</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📅</span>
+                  <span className="text-2xl">⚡</span>
                   <div>
-                    <h4 className="font-bold mb-1">Appointment Scheduling</h4>
-                    <p className="text-gray-700">Online booking system with automated reminders and calendar sync</p>
+                    <h4 className="font-bold mb-1">High Performance</h4>
+                    <p className="text-gray-700">Enterprise-grade infrastructure with 99.9% uptime guarantee</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📝</span>
+                  <span className="text-2xl">🔄</span>
                   <div>
-                    <h4 className="font-bold mb-1">Invoice Management</h4>
-                    <p className="text-gray-700">Create, send, and track invoices with automatic payment reminders</p>
+                    <h4 className="font-bold mb-1">API Integration</h4>
+                    <p className="text-gray-700">Seamless integration with your existing tools and workflows</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">👥</span>
                   <div>
-                    <h4 className="font-bold mb-1">Customer Management</h4>
-                    <p className="text-gray-700">Track customer interactions, history, and preferences in one place</p>
+                    <h4 className="font-bold mb-1">Multi-tenant Architecture</h4>
+                    <p className="text-gray-700">Secure data isolation and role-based access control</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📈</span>
+                  <span className="text-2xl">⚙️</span>
                   <div>
-                    <h4 className="font-bold mb-1">Business Analytics</h4>
-                    <p className="text-gray-700">Real-time insights into your business performance and growth</p>
+                    <h4 className="font-bold mb-1">Custom Configuration</h4>
+                    <p className="text-gray-700">Tailor the platform to match your business needs</p>
                   </div>
                 </div>
               </div>
               <div className="flex gap-4">
                 <NeubrutalistButton variant="primary">
-                  Start Free Trial
+                  Schedule Demo
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"

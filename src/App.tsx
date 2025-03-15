@@ -6,29 +6,27 @@ import Contact from './components/Contact'
 import Footer from './components/Footer' 
 import FourSectionsWrapper from './components/FourSectionsWrapper'
 import Careers from './components/Careers'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
+  const path = window.location.pathname;
+
   return (
-    <Router>
-      <div className="min-h-screen w-full overflow-x-hidden">
-        <Navbar />
-        <Routes>
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/" element={
-            <main className="w-full">
-              <Hero />
-              <FourSectionsWrapper />
-              <Services />
-              <About /> 
-              <Contact />
-            </main>
-          } />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  )
+    <div className="min-h-screen w-full overflow-x-hidden">
+      <Navbar />
+      {path === '/careers' ? (
+        <Careers />
+      ) : (
+        <main className="w-full">
+          <Hero />
+          <FourSectionsWrapper />
+          <Services />
+          <About /> 
+          <Contact />
+        </main>
+      )}
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

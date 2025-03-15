@@ -13,7 +13,7 @@ const ProfessionalPortfolioSection = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-black mb-12"
           >
-            Professional Portfolio Solutions
+            Personal Portfolio Sites
           </motion.h2>
 
           <motion.div
@@ -22,70 +22,40 @@ const ProfessionalPortfolioSection = () => {
             viewport={{ once: true }}
           >
             <NeubrutalistCard className="p-8">
-              <h3 className="text-2xl font-bold mb-6">Stand Out with a Professional Portfolio</h3>
-              
-              {/* Target Professionals */}
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold mb-4">Perfect For:</h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-600 text-2xl">👨‍💼</span>
-                    <div>
-                      <h5 className="font-semibold">Business Professionals</h5>
-                      <p className="text-gray-600">Showcase your business achievements, leadership roles, and success stories</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-600 text-2xl">🎨</span>
-                    <div>
-                      <h5 className="font-semibold">Designers & Creatives</h5>
-                      <p className="text-gray-600">Display your work with beautiful galleries and case studies</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-600 text-2xl">💡</span>
-                    <div>
-                      <h5 className="font-semibold">Entrepreneurs</h5>
-                      <p className="text-gray-600">Present your ventures, innovations, and entrepreneurial journey</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-600 text-2xl">🚀</span>
-                    <div>
-                      <h5 className="font-semibold">Startups & Founders</h5>
-                      <p className="text-gray-600">Tell your startup story and highlight your vision</p>
-                    </div>
-                  </li>
-                </ul>
+              <h3 className="text-2xl font-bold mb-6">Showcase Your Talent</h3>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🎨</span>
+                  <div>
+                    <h4 className="font-bold mb-1">Creative Design</h4>
+                    <p className="text-gray-700">Stand out with unique animations and interactive elements</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📱</span>
+                  <div>
+                    <h4 className="font-bold mb-1">Responsive Gallery</h4>
+                    <p className="text-gray-700">Showcase your work beautifully on any device</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🔍</span>
+                  <div>
+                    <h4 className="font-bold mb-1">Personal Branding</h4>
+                    <p className="text-gray-700">Build your online presence and attract opportunities</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🌐</span>
+                  <div>
+                    <h4 className="font-bold mb-1">Custom Domain</h4>
+                    <p className="text-gray-700">Use your own domain name for a professional touch</p>
+                  </div>
+                </div>
               </div>
-
-              {/* Key Features */}
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold mb-4">Portfolio Features:</h4>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3">
-                    <span className="text-blue-600">✨</span>
-                    <span>Custom design that matches your personal brand</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="text-blue-600">📱</span>
-                    <span>Responsive layout for all devices</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="text-blue-600">🔍</span>
-                    <span>SEO optimization to get discovered</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="text-blue-600">📊</span>
-                    <span>Analytics to track portfolio performance</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Call to Action */}
-              <div className="flex gap-4 mt-8">
+              <div className="flex gap-4">
                 <NeubrutalistButton variant="primary">
-                  Create Your Portfolio
+                  Create Portfolio
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"

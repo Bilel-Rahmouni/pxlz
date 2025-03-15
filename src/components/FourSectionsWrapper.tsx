@@ -5,7 +5,7 @@ import BusinessSection from './BusinessSection';
 import MobileSection from './MobileAppSection';
 import SAASSection from './SAASSection';
 import ProfessionalPortfolioSection from './ProfessionalPortfolioSection';
-import smallBusiness from '../assets/smallBusiness.jpg';
+import smallBusiness from '../assets/lumara.png';
 import wyngo from '../assets/wyngo.png';
 import iconmaker from '../assets/iconmaker.png';
 import portfolio from '../assets/portfolio.png';
@@ -42,7 +42,7 @@ const FourSectionsWrapper = () => {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.9, 1],
+    [0, 0.05, 0.95, 1 ],
     [0, 1, 1, 0]
   );
 
@@ -115,26 +115,26 @@ const FourSectionsWrapper = () => {
             >
               {currentSection === 'business' && (
                 <>
-                  <StatDisplay value={86} label="Time Management" icon={FaClock} suffix="%" />
-                  <StatDisplay value={83} label="Code Quality" icon={FaCode} suffix="%" />
+                  <StatDisplay value={250} label="Active Local Businesses" icon={FaUsers} suffix="+" />
+                  <StatDisplay value={98} label="Customer Satisfaction" icon={FaCheckCircle} suffix="%" />
                 </>
               )}
               {currentSection === 'mobile' && (
                 <>
-                  <StatDisplay value={10} label="App Downloads" icon={FaDownload} suffix="K+" />
-                  <StatDisplay value={4.8} label="App Rating" icon={FaStar} />
+                  <StatDisplay value={20} label="App Downloads" icon={FaDownload} suffix="K+" />
+                  <StatDisplay value={4.8} label="App Store Rating" icon={FaStar} />
                 </>
               )}
               {currentSection === 'saas' && (
                 <>
-                  <StatDisplay value={25} label="Active Users" icon={FaUsers} suffix="K+" />
-                  <StatDisplay value={98} label="User Satisfaction" icon={FaCheckCircle} suffix="%" />
+                  <StatDisplay value={15} label="Enterprise Clients" icon={FaProjectDiagram} suffix="+" />
+                  <StatDisplay value={99.9} label="Uptime" icon={FaCheckCircle} suffix="%" />
                 </>
               )}
               {currentSection === 'portfolio' && (
                 <>
-                  <StatDisplay value={90} label="Growth Rate" icon={FaChartLine} suffix="%" />
-                  <StatDisplay value={35} label="Projects Completed" icon={FaProjectDiagram} suffix="+" />
+                  <StatDisplay value={100} label="Satisfied Clients" icon={FaUsers} suffix="+" />
+                  <StatDisplay value={25} label="Freelance Projects" icon={FaCode} suffix="+" />
                 </>
               )}
             </motion.div>

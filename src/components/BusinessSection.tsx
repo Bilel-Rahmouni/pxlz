@@ -14,7 +14,7 @@ const BusinessSection = () => {
             className="text-4xl md:text-5xl font-black mb-12"
             style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}
           >
-            Business Website Solutions
+            Small Business Websites
           </motion.h2>
 
           <motion.div
@@ -23,40 +23,40 @@ const BusinessSection = () => {
             viewport={{ once: true }}
           >
             <NeubrutalistCard className="p-8">
-              <h3 className="text-3xl font-bold mb-6">Complete Business Website Package</h3>
+              <h3 className="text-3xl font-bold mb-6">Grow Your Local Presence</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">🎯</span>
                   <div>
-                    <h4 className="font-bold mb-1">Professional Design</h4>
-                    <p className="text-gray-700">Custom-designed website that reflects your brand identity and values</p>
+                    <h4 className="font-bold mb-1">Local SEO Optimization</h4>
+                    <p className="text-gray-700">Rank higher in local searches and attract nearby customers</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">💳</span>
+                  <div>
+                    <h4 className="font-bold mb-1">Online Booking & Payments</h4>
+                    <p className="text-gray-700">Let customers book appointments and pay securely online</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">📱</span>
                   <div>
-                    <h4 className="font-bold mb-1">Mobile Responsive</h4>
-                    <p className="text-gray-700">Perfect display on all devices - phones, tablets, and desktops</p>
+                    <h4 className="font-bold mb-1">Mobile-First Design</h4>
+                    <p className="text-gray-700">Beautiful on all devices with fast loading speeds</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🔍</span>
+                  <span className="text-2xl">🤝</span>
                   <div>
-                    <h4 className="font-bold mb-1">SEO Optimized</h4>
-                    <p className="text-gray-700">Built-in SEO features to help customers find your business online</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⚡</span>
-                  <div>
-                    <h4 className="font-bold mb-1">Fast Performance</h4>
-                    <p className="text-gray-700">Lightning-fast loading speeds for better user experience</p>
+                    <h4 className="font-bold mb-1">24/7 Customer Support</h4>
+                    <p className="text-gray-700">Get help whenever you need it with our dedicated support team</p>
                   </div>
                 </div>
               </div>
               <div className="flex gap-4">
                 <NeubrutalistButton variant="primary">
-                  Start Your Project
+                  Start Your Website
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"

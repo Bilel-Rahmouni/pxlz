@@ -23,40 +23,40 @@ const MobileSection = () => {
             viewport={{ once: true }}
           >
             <NeubrutalistCard className="p-8">
-              <h3 className="text-3xl font-bold mb-6">Small Business Mobile App</h3>
+              <h3 className="text-3xl font-bold mb-6">Turn Your Idea Into Reality</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🛍️</span>
+                  <span className="text-2xl">📱</span>
                   <div>
-                    <h4 className="font-bold mb-1">Customer Loyalty Program</h4>
-                    <p className="text-gray-700">Digital loyalty cards, rewards, and special offers for your customers</p>
+                    <h4 className="font-bold mb-1">Native Performance</h4>
+                    <p className="text-gray-700">Fast, smooth apps that feel natural on iOS and Android</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📊</span>
+                  <span className="text-2xl">🎨</span>
                   <div>
-                    <h4 className="font-bold mb-1">Business Dashboard</h4>
-                    <p className="text-gray-700">Track sales, customer engagement, and business analytics in real-time</p>
+                    <h4 className="font-bold mb-1">Modern UI/UX Design</h4>
+                    <p className="text-gray-700">Beautiful interfaces with intuitive user experiences</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🔔</span>
+                  <span className="text-2xl">🔄</span>
                   <div>
-                    <h4 className="font-bold mb-1">Push Notifications</h4>
-                    <p className="text-gray-700">Send updates, promotions, and announcements directly to customers</p>
+                    <h4 className="font-bold mb-1">Real-time Updates</h4>
+                    <p className="text-gray-700">Instant data sync and push notifications</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">💳</span>
+                  <span className="text-2xl">🔒</span>
                   <div>
-                    <h4 className="font-bold mb-1">Mobile Payments</h4>
-                    <p className="text-gray-700">Secure in-app payments and digital transactions</p>
+                    <h4 className="font-bold mb-1">Secure & Scalable</h4>
+                    <p className="text-gray-700">Enterprise-grade security and cloud infrastructure</p>
                   </div>
                 </div>
               </div>
               <div className="flex gap-4">
                 <NeubrutalistButton variant="primary">
-                  Get Your App
+                  Start Your App
                 </NeubrutalistButton>
                 <NeubrutalistButton 
                   variant="outline"
