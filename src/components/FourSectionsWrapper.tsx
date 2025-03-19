@@ -18,14 +18,14 @@ interface StatProps {
 }
 
 const StatDisplay = ({ value, label, icon: Icon, suffix = '' }: StatProps) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 w-[200px]">
+  <div className="bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2 max-w-[180px] w-full">
     <div className="flex flex-row justify-between items-center w-full">
-      <div className="flex flex-row items-center gap-2">
-        <div className="text-base font-bold text-gray-800">{value}{suffix}</div>
-        <div className="text-xs font-medium text-gray-600">{label}</div>
+      <div className="flex flex-row items-center gap-1 flex-1 min-w-0">
+        <div className="text-base font-bold text-gray-800 whitespace-nowrap">{value}{suffix}</div>
+        <div className="text-xs font-medium text-gray-600 truncate">{label}</div>
       </div>
-      <div className="w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
-        <Icon className="w-4 h-4 text-pink-500" />
+      <div className="w-6 h-6 bg-white rounded-full shadow-lg flex items-center justify-center flex-shrink-0 ml-2">
+        <Icon className="w-3 h-3 text-pink-500" />
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ const FourSectionsWrapper = () => {
 
     return (
       <motion.div
-        className={`relative ${isDesktop ? 'w-[85%] ml-auto' : 'w-full'}`}
+        className={`relative ${isDesktop ? 'w-[80%]' : 'w-full'}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -113,7 +113,7 @@ const FourSectionsWrapper = () => {
         />
 
         <motion.div
-          className={`absolute ${isDesktop ? '-left-16' : '-left-4'} -bottom-4 flex flex-col gap-2`}
+          className="absolute left-0 bottom-0 flex flex-col gap-2 transform translate-y-4"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -152,10 +152,10 @@ const FourSectionsWrapper = () => {
       {/* Desktop Sticky Image Container */}
       {!isMobile && (
         <motion.div 
-          className="fixed top-0 right-0 w-[55%] h-screen flex items-center justify-end z-10"
+          className="fixed top-0 right-0 w-[45%] h-screen flex items-center z-10"
           style={{ opacity }}
         >
-          <div className="relative w-full pr-8">
+          <div className="relative w-full px-4">
             <ImageWithStats section={currentSection} isDesktop={true} />
           </div>
         </motion.div>

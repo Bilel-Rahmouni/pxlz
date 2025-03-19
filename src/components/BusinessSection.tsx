@@ -6,7 +6,7 @@ const BusinessSection = () => {
   return (
     <section className="py-20" id="business">
       <div className="container mx-auto px-4">
-        <div className="w-full lg:w-1/2 pr-8">
+        <div className="w-full lg:w-1/2">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

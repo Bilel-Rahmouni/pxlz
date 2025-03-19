@@ -145,31 +145,29 @@ const Navbar = () => {
           : 'bg-white shadow-lg'
         }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-4">
-        <div className="flex items-center justify-between h-[60px] md:h-auto">
+      <div className="w-full px-2 sm:px-4 py-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Logo />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) => (
               <motion.a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`
-                  transition-colors duration-300 font-medium relative group text-sm lg:text-base
+                  transition-colors duration-300 font-medium relative group text-base
                   ${isScrolled ? 'text-white hover:text-[#3B82F6]' : 'text-black hover:text-[#3B82F6]'}
                 `}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5
-                 bg-[#3B82F6] transition-all duration-300
-                 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3B82F6] transition-all duration-300 group-hover:w-full"></span>
               </motion.a>
             ))}
             <motion.a
@@ -177,9 +175,8 @@ const Navbar = () => {
               onClick={(e) => handleNavClick(e, '#contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 lg:px-6 py-2 bg-[#3B82F6] text-black 
-              rounded-full hover:shadow-lg transition-all text-sm lg:text-base
-              duration-300 font-bold border-[1px] border-black whitespace-nowrap"
+              className="px-6 py-2 bg-[#3B82F6] text-black rounded-full hover:shadow-lg transition-all text-base
+              duration-300 font-bold border-[1px] border-black"
             >
               Get a Free Quote
             </motion.a>
