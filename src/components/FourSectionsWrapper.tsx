@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { FaDownload, FaStar, FaUsers, FaCheckCircle,  FaCode,  FaProjectDiagram } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { FaDownload, FaStar, FaUsers, FaCheckCircle, FaCode, FaProjectDiagram } from 'react-icons/fa';
 import BusinessSection from './BusinessSection';
 import MobileSection from './MobileAppSection';
 import SAASSection from './SAASSection';
@@ -32,8 +32,6 @@ const StatDisplay = ({ value, label, icon: Icon, suffix = '' }: StatProps) => (
 );
 
 const FourSectionsWrapper = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentSection, setCurrentSection] = useState<string>('business');
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -45,39 +43,6 @@ const FourSectionsWrapper = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.02, 1, 1],
-    [0, 1, 1, 0]
-  );
-
-  useEffect(() => {
-    if (!isMobile) {
-      const handleScroll = () => {
-        const sections = ['business', 'mobile', 'saas', 'portfolio'];
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-              setCurrentSection(section);
-              break;
-            }
-          }
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, [isMobile]);
- 
 
   const ImageWithStats = ({ section, isDesktop = false }: { section: string, isDesktop?: boolean }) => {
     const getImage = () => {
@@ -98,8 +63,8 @@ const FourSectionsWrapper = () => {
     return (
       <motion.div
         className={`relative ${isDesktop ? 'w-[80%]' : 'w-full'}`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <motion.img
@@ -107,16 +72,16 @@ const FourSectionsWrapper = () => {
           src={getImage()}
           alt="Section Preview"
           className="w-full h-auto rounded-lg shadow-2xl"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         />
 
         <motion.div
           className="absolute left-0 bottom-0 flex flex-col gap-2 transform translate-y-4"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           {section === 'business' && (
             <>
@@ -148,46 +113,11 @@ const FourSectionsWrapper = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative">
-      {/* Desktop Sticky Image Container */}
-      {!isMobile && (
-        <motion.div 
-          className="fixed top-0 right-0 w-[45%] h-screen flex items-center z-10"
-          style={{ opacity }}
-        >
-          <div className="relative w-full px-4">
-            <ImageWithStats section={currentSection} isDesktop={true} />
-          </div>
-        </motion.div>
-      )}
-
-      {/* Sections Container */}
-      <div className="w-full">
-        <BusinessSection />
-        {isMobile && (
-          <div className="container mx-auto px-4 py-8">
-            <ImageWithStats section="business" />
-          </div>
-        )}
-        <MobileSection />
-        {isMobile && (
-          <div className="container mx-auto px-4 py-8">
-            <ImageWithStats section="mobile" />
-          </div>
-        )}
-        <SAASSection />
-        {isMobile && (
-          <div className="container mx-auto px-4 py-8">
-            <ImageWithStats section="saas" />
-          </div>
-        )}
-        <ProfessionalPortfolioSection />
-        {isMobile && (
-          <div className="container mx-auto px-4 py-8">
-            <ImageWithStats section="portfolio" />
-          </div>
-        )}
-      </div>
+    <div className="w-full">
+      <BusinessSection />
+      <MobileSection />
+      <SAASSection />
+      <ProfessionalPortfolioSection />
     </div>
   );
 };
