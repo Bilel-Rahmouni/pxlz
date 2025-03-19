@@ -88,7 +88,7 @@ const ProfessionalPortfolioSection = () => {
                   </NeubrutalistButton>
                   <NeubrutalistButton 
                     variant="outline"
-                    onClick={() => window.open('https://portfolio.pxlz.dev', '_blank')}
+                    onClick={() => window.open('https://bilelrahmouni.com', '_blank')}
                   >
                     View Example
                   </NeubrutalistButton>

@@ -88,7 +88,7 @@ const SAASSection = () => {
                   </NeubrutalistButton>
                   <NeubrutalistButton 
                     variant="outline"
-                    onClick={() => window.open('https://pxlz.dev', '_blank')}
+                    onClick={() => window.open('https://iconmaker.pro', '_blank')}
                   >
                     View Example
                   </NeubrutalistButton>
