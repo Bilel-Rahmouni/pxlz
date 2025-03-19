@@ -8,18 +8,20 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full space-y-8 text-center"
+        className=" space-y-8 text-center"
       >
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-5xl md:text-7xl font-black leading-tight"
+          className="text-5xl md:text-7xl  font-black leading-tight"
           style={{ fontFamily: 'Futura, "Trebuchet MS", Arial, sans-serif' }}
         >
           We Create
           <motion.span 
-            className="block text-transparent bg-clip-text pb-2 bg-gradient-to-r from-blue-500 via-violet-600 to-red-400"
+            className="block text-transparent  
+             bg-clip-text pb-2 bg-gradient-to-r
+             from-blue-500 via-violet-600 to-red-400"
             animate={{ 
               y: [0, -10, 0],
             }}
